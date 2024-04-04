@@ -18,6 +18,15 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
+def submit_handler():
+    id = 
+    first_name = 
+    last_name = 
+    email = 
+    dob = 
+    phonenum = 
+
+
 window = Tk()
 
 window.geometry("934x554")
