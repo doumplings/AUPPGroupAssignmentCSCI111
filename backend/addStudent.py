@@ -46,10 +46,11 @@ def addStudent(id, first_name, last_name, email, phonenum, dob):
                 print('RECORD FETCHING PROBLEM ', e)
             else:
                 if noofrecoredinsert > 0:
-                    print('RECORD INSERTED')
+                    conn.commit()
+                    return 'RECORD INSERTED'
                     
                 else:
-                    print('RECORD NOT INSERTED')
+                    return 'RECORD NOT INSERTED'
             finally:
                 # STEP 9 - CLOSE CONNECTION
                 conn.close()

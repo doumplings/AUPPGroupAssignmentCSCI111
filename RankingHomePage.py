@@ -17,86 +17,112 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"D:\Coding\Python\StuManSys\build\assets\frame
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def RankingHomePage():
+    from RankingPage import RankingPage
+    window = Tk()
 
-window = Tk()
+    window.geometry("934x554")
+    window.configure(bg = "#979FB2")    
 
-window.geometry("934x554")
-window.configure(bg = "#979FB2")
+    from HomePage import HomePage
+    def backbtn_clicked():
+        window.destroy()
+        HomePage()
+        
+    def ranking_clicked():
+        window.destroy()
+        RankingPage()
 
+    canvas = Canvas(
+        window,
+        bg = "#979FB2",
+        height = 554,
+        width = 934,
+        bd = 0,
+        highlightthickness = 0,
+        relief = "ridge"
+    )
 
-canvas = Canvas(
-    window,
-    bg = "#979FB2",
-    height = 554,
-    width = 934,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-)
+    canvas.place(x = 0, y = 0)
 
-canvas.place(x = 0, y = 0)
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
-image_1 = canvas.create_image(
-    467.0,
-    277.0,
-    image=image_image_1
-)
+    backbtnimage = PhotoImage(
+        file=relative_to_assets("backbtn.png"))
+    backbtn = Button(
+        image=backbtnimage,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda:  backbtn_clicked(),
+        relief="flat"
+    )
+    backbtn.place(
+        x=43.0,
+        y=45.0,
+        width=154.736328125,
+        height=63.0
+    )
 
-image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
-image_2 = canvas.create_image(
-    466.0,
-    277.0,
-    image=image_image_2
-)
+    image_image_1 = PhotoImage(
+        file=relative_to_assets("image_1.png"))
+    image_1 = canvas.create_image(
+        467.0,
+        277.0,
+        image=image_image_1
+    )
 
-image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
-image_3 = canvas.create_image(
-    466.0,
-    66.0,
-    image=image_image_3
-)
+    image_image_2 = PhotoImage(
+        file=relative_to_assets("image_2.png"))
+    image_2 = canvas.create_image(
+        466.0,
+        277.0,
+        image=image_image_2
+    )
 
-image_image_4 = PhotoImage(
-    file=relative_to_assets("image_4.png"))
-image_4 = canvas.create_image(
-    467.0,
-    277.0,
-    image=image_image_4
-)
+    image_image_3 = PhotoImage(
+        file=relative_to_assets("image_3.png"))
+    image_3 = canvas.create_image(
+        466.0,
+        66.0,
+        image=image_image_3
+    )
 
-image_image_5 = PhotoImage(
-    file=relative_to_assets("image_5.png"))
-image_5 = canvas.create_image(
-    466.0,
-    277.0,
-    image=image_image_5
-)
+    image_image_4 = PhotoImage(
+        file=relative_to_assets("image_4.png"))
+    image_4 = canvas.create_image(
+        467.0,
+        277.0,
+        image=image_image_4
+    )
 
-image_image_6 = PhotoImage(
-    file=relative_to_assets("image_6.png"))
-image_6 = canvas.create_image(
-    466.0,
-    66.0,
-    image=image_image_6
-)
+    image_image_5 = PhotoImage(
+        file=relative_to_assets("image_5.png"))
+    image_5 = canvas.create_image(
+        466.0,
+        277.0,
+        image=image_image_5
+    )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
-    relief="flat"
-)
-button_1.place(
-    x=95.0,
-    y=159.0,
-    width=198.0,
-    height=96.0
-)
-window.resizable(False, False)
-window.mainloop()
+    image_image_6 = PhotoImage(
+        file=relative_to_assets("image_6.png"))
+    image_6 = canvas.create_image(
+        466.0,
+        66.0,
+        image=image_image_6
+    )
+
+    button_image_1 = PhotoImage(
+        file=relative_to_assets("button_1.png"))
+    button_1 = Button(
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: ranking_clicked(),
+        relief="flat"
+    )
+    button_1.place(
+        x=95.0,
+        y=159.0,
+        width=198.0,
+        height=96.0
+    )
+    window.resizable(False, False)
+    window.mainloop()

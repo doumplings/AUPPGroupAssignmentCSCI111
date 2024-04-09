@@ -29,30 +29,28 @@ def getNewStudentId():
         query = "SELECT id FROM student"
 
         try:
-            # STEP - 5 TAKE INPUT FROM USER
-        
-
-        except Exception as e:
-            print('INPUT ERROR ', e)
-        else:
-            try:
                 # STEP 6 - CREATE cursor Object
                 cursor = conn.cursor()
 
                 # STEP 7 - EXECUTE THE Query
                 cursor.execute(query)
 
-            except Exception as e:
-                print('RECORD FETCHING PROBLEM ', e)
-            else:
-                if cursor.rowcount > 0:
-                # STEP 8 - DISPLAY RECORDS
-                # Fetch Each Record In Dictionary Format
-                    for record in cursor:
-                        print(" ----------- ")
-                else: 
-                    print('NO RECORD FOUND')
-            finally:
+        except Exception as e:
+            print('RECORD FETCHING PROBLEM ', e)
+        else:
+            if cursor.rowcount > 0:
+            # STEP 8 - DISPLAY RECORDS
+            # Fetch Each Record In Dictionary Format
+                arr = []
+                for record in cursor:
+                    arr.append(record['id'])
+                length = len(arr)
+                return int(length+1)
+            else: 
+                print('NO RECORD FOUND')
+                return 0
+        finally:
                 # STEP 9 - CLOSE CONNECTION
                 conn.close()
+
 
